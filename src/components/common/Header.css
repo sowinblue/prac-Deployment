@@ -1,80 +1,66 @@
 /* Header 전체 영역 */
 .header {
   position: fixed;            /* 스크롤 내려도 상단 고정 */
-top: 0;
-left: 0;
-width: 100%;
-height: 60px;
-
-/* ★ 필수 추가: 패딩이 너비에 포함되도록 설정 */
-box-sizing: border-box;
-display: flex;
-align-items: center;
-justify-content: space-between;
-
-/* 좌우 여백을 화면 끝에서 살짝 띄움 (너무 치우쳐 보이면 이 값을 조절하세요) */
-padding: 0 24px;
-background-color: #ffffff;
-
-  border-bottom: 1px solid #ddd; /* 하단 구분선 */
-  z-index: 1000;                 /* 다른 요소보다 위에 */
-  transition: background-color 0.3s ease; /* 테마 전환 시 부드럽게 */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 60px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  background-color: #fdfcf0;
+  border: 1px solid #ddd;
+  border-bottom: none;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
 }
 
 /* 좌측 영역 (로고 + 메뉴) */
 .header-left {
-display: flex;
-align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 /* 로고 */
 .logo {
-font-weight: bold;
-font-size: 23px;
+  font-weight: bold;
+  font-size: 23px;
+  /* Removed flex: 1 and text-align: center */
 }
 
 /* 메뉴 영역 */
 .menu {
-  
-  margin-left: 50px; /* 로고로부터 큰 간격 */
-  /* 2. 오른쪽 여백도 auto로 주어 테마 버튼으로부터도 멀어지게 함 */
-  margin-right: auto; 
-  
   display: flex;
-  gap: 30px; /* 메뉴 글자들 사이의 간격을 넓혀 시인성 확보 */
+  gap: 30px;
+  justify-content: center; /* Center menu items */
+  /* Removed flex: 1 */
+  margin-left: 50px; /* 로고로부터 큰 간격 */
 }
 
 /* 메뉴 버튼 */
 .menu-btn {
-background: none;
-border: none;
-font-size: 14px;
-cursor: pointer;
-  margin-right: 16px; /* 텍스트 간격 (띄어쓰기 2자 느낌) */
+  background: none;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  /* Removed margin-right: 16px */
 }
 .menu-btn:hover {
-  color: #ff4b2b; /* 호버 시 포인트를 주어 시인성 강화 */
+  color: #ff4b2b;
 }
 
-/* 테마 전환 버튼 */
-.theme-btn {
-background: none;
-border: none;
-font-size: 20px;
-cursor: pointer;
-}
-
-/* 다크 모드 */
-.dark-mode {
-background-color: #1e1e1e;
-color: #ffffff;
-}
-
-.dark-mode .header {
-background-color: #1e1e1e;
-border-bottom: 1px solid #444;
-}
-
-.dark-mode .menu-btn {
-color: #ffffff;
+.capture-btn {
+    padding: 10px;
+    background: #8d6e63;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-right: 20px; /* Increased margin to move inwards */
+    /* Removed margin-left: auto */
 }
