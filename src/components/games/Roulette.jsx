@@ -220,7 +220,7 @@ const Roulette = ({ members }) => {
                         onClick={handleResetGame}
                         disabled={isRolling || showFinalPickEffect}
                     >
-                        새로운 게임 시작
+                        reset
                     </button>
                 </div>
 

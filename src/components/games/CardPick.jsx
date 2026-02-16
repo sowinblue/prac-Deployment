@@ -143,9 +143,9 @@ const CardPick = ({ members }) => {
 
       {/* 하단 버튼 3개 */}
       <div className="button-group">
-        <button className="action-btn retry" onClick={shuffleCards}>🔄 다시 섞기</button>
-        <button className="action-btn flip-all" onClick={handleFlipAll}>⚡ 모두 뒤집기</button>
-        <button className="action-btn result" onClick={handleShowResults}>📊 전체 결과</button>
+        <button className="action-btn retry" onClick={shuffleCards}>다시 섞기</button>
+        <button className="action-btn flip-all" onClick={handleFlipAll}>모두 뒤집기</button>
+        <button className="action-btn result" onClick={handleShowResults}>전체 결과</button>
       </div>
 
       {/* 전체 결과 모달 */}

@@ -164,7 +164,7 @@ const Ladder = ({ members }) => {
             {/* 1. 사다리 생성 전: 입력 화면 (ladderData가 없을 때) */}
             {!ladderData && (
                 <div className="input-section">
-                    <p style={{marginBottom:'10px', color:'#666', fontSize:'14px'}}>👇 벌칙/당첨 내용을 적어주세요</p>
+                    <p style={{marginBottom:'10px', color:'#666', fontSize:'14px'}}>벌칙/당첨 내용을 적어주세요</p>
                     <div style={{display:'flex', gap:'5px', justifyContent:'center', flexWrap:'wrap', marginBottom:'15px'}}>
                         {members.map((m, i) => (
                             <div key={m.id} style={{textAlign:'center', margin:'2px'}}>
@@ -182,7 +182,7 @@ const Ladder = ({ members }) => {
                             </div>
                         ))}
                     </div>
-                    <button onClick={handleStart} style={{padding:'8px 25px', background:'#5c6bc0', color:'white', border:'none', borderRadius:'20px', cursor:'pointer', fontWeight:'bold'}}>
+                    <button onClick={handleStart} style={{padding:'8px 25px', background:'#8d6e63', color:'white', border:'none', borderRadius:'20px', cursor:'pointer', fontWeight:'bold'}}>
                         게임 시작
                     </button>
                 </div>
@@ -257,13 +257,13 @@ const Ladder = ({ members }) => {
                     <div style={{marginTop: '15px', display: 'flex', gap: '10px'}}>
                         <button 
                             onClick={() => setShowResultModal(true)} 
-                            style={{padding:'8px 25px', background:'#e67e22', color:'white', border:'none', borderRadius:'20px', cursor:'pointer', fontWeight:'bold', fontSize:'13px', display:'flex', alignItems:'center', gap:'5px'}}
+                            style={{padding:'8px 25px', background:'#8d6e63', color:'white', border:'none', borderRadius:'20px', cursor:'pointer', fontWeight:'bold', fontSize:'13px', display:'flex', alignItems:'center', gap:'5px'}}
                         >
                             📊 전체 결과
                         </button>
                         <button 
                             onClick={handleReset} 
-                            style={{padding:'8px 25px', background:'#fff', border:'1px solid #ccc', borderRadius:'20px', cursor:'pointer', color:'#555', fontWeight:'bold', fontSize:'13px'}}
+                            style={{padding:'8px 25px', background:'#fff', border:'1px solid #8d6e63', borderRadius:'20px', cursor:'pointer', color:'#555', fontWeight:'bold', fontSize:'13px'}}
                         >
                             다시 설정
                         </button>
@@ -275,7 +275,7 @@ const Ladder = ({ members }) => {
             {showResultModal && (
                 <div className="result-modal-overlay">
                     <div className="result-modal">
-                        <h3 style={{marginBottom:'15px', fontSize:'20px', color:'#e6a23c'}}>전체 결과</h3>
+                        <h3 style={{marginBottom:'15px', fontSize:'20px', color:'#8d6e63'}}>전체 결과</h3>
                         <ul className="result-list">
                             {/* getAllResults 함수로 결과를 계산해서 리스트로 뿌려줌 */}
                             {getAllResults().map((res, idx) => (

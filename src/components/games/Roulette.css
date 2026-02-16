@@ -51,7 +51,7 @@
 }
 
 .top-control-area input:focus {
-    border-color: #3f51b5;
+    border-color: #8d6e63;
     outline: none;
 }
 
@@ -59,7 +59,7 @@
     padding: 10px 15px;
     border: none;
     border-radius: 8px;
-    background-color: #007bff; /* Primary blue color */
+    background-color:#8d6e63; /* Primary blue color */
     color: white;
     font-size: 1.0em;
     font-weight: 600;

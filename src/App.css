@@ -114,7 +114,7 @@ body, html {
 .main-wrapper .member-tag {
   display: inline-flex;
   align-items: center;
-  background: white;
+  background: #efebe9;
   border: 1px solid #d7ccc8;
   padding: 6px 14px;
   border-radius: 20px;

@@ -3,7 +3,7 @@ import './Dashboard.css';
 
 const games = [
     { id: 'ladder', name: '사다리 타기', icon: '🪜' },
-    { id: 'roulette', name: '룰렛 돌리기', icon: '🎡' },
+    { id: 'roulette', name: '룰렛 돌리기', icon: '🕹' },
     { id: 'CardPick', name: '카드 뽑기', icon: '🃏' },
     { id: 'seat', name: '자리 배치', icon: '🪑' },
 ];
