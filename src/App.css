@@ -1,0 +1,139 @@
+/* [1] 기본 설정: 브라우저 전체 스크롤 허용 (가장 중요) */
+body, html {
+  margin: 0;
+  padding: 0;
+  background-color: #fdfcf0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  
+  /* ★ 중요: 여기서 hidden을 걸면 모든 게임에서 스크롤이 안 됩니다. auto로 둡니다. */
+  overflow-y: auto; 
+  height: auto; 
+}
+
+.App {
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* [2] 레이아웃 컨테이너: 높이 제한 해제 */
+.layout-container {
+  padding-top: 80px; /* 헤더 공간 */
+  width: 100%;
+  
+  /* ★ 중요: 높이를 고정하지 않고, 내용만큼 늘어나게 함 */
+  min-height: calc(100vh - 80px); 
+  height: auto; 
+  
+  /* Flex 설정을 풀고, 일반적인 블록 흐름으로 바꿉니다 (스크롤 잘림 방지) */
+  display: block; 
+  
+  box-sizing: border-box;
+}
+
+/* [3] ★ 메인 화면(Home) 전용 스타일 ★ */
+/* 메인 화면일 때만 이 클래스가 생기므로, 여기서만 '앱'처럼 고정합니다 */
+.main-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: stretch; /* 높이 꽉 채우기 */
+  gap: 40px;
+  
+  width: 1200px;
+  max-width: 95%;
+  
+  /* ★ 메인 화면 핵심: 화면 높이에 딱 맞게 고정 (스크롤 방지) */
+  height: 80vh; 
+  margin: 40px auto; /* 중앙 정렬 */
+  
+  background: white;
+  border-radius: 20px;
+  border: 1px solid #efebe9;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  padding: 40px;
+  box-sizing: border-box;
+  
+  /* 메인 박스를 벗어나는 내용은 숨김 (내부 스크롤 유도) */
+  overflow: hidden; 
+}
+
+/* [4] 메인 화면 왼쪽: 멤버 입력 (비율 6) */
+.member-input-container {
+  flex: 6;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* 부모 높이 100% 사용 */
+  overflow: hidden; /* 내부 스크롤을 위해 넘치는 것 숨김 */
+}
+
+/* [5] 메인 화면 오른쪽: 게임 선택 (비율 4) */
+.dashboard-container {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+}
+
+/* [6] ★ 멤버 리스트 박스 (메인 화면에서만 스크롤) ★ */
+.main-wrapper .member-list-wrapper {
+  flex: 1; /* 남은 세로 공간 모두 차지 */
+  width: 100%;
+  
+  /* 디자인 */
+  background-color: #fafafa !important;
+  border: 2px solid #efebe9 !important;
+  border-radius: 12px;
+  padding: 20px;
+  margin-top: 15px;
+  box-sizing: border-box;
+
+  /* ★ 스크롤 설정: 내용이 많으면 여기서만 스크롤 생김 */
+  overflow-y: auto !important; 
+  
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
+  gap: 8px;
+}
+
+/* 스크롤바 디자인 */
+.main-wrapper .member-list-wrapper::-webkit-scrollbar {
+  width: 8px;
+}
+.main-wrapper .member-list-wrapper::-webkit-scrollbar-thumb {
+  background-color: #d7ccc8;
+  border-radius: 4px;
+}
+
+/* 멤버 태그 스타일 */
+.main-wrapper .member-tag {
+  display: inline-flex;
+  align-items: center;
+  background: white;
+  border: 1px solid #d7ccc8;
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 15px;
+  color: #4e342e;
+  height: fit-content;
+  max-width: 98%;
+  word-break: break-all; /* 긴 이름 줄바꿈 */
+}
+
+/* 삭제 버튼 */
+.main-wrapper .remove-member-button {
+  background: none;
+  border: none;
+  color: #a1887f;
+  margin-left: 8px;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}

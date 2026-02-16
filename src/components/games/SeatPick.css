@@ -1,0 +1,283 @@
+/* 1. 전체 레이아웃 (기존 3칸 나눔 유지) */
+.seat-pick-page {
+    display: grid;
+    grid-template-columns: 200px 250px 1fr;
+    gap: 20px;
+    padding: 20px;
+    background-color: #fdfcf0; 
+    min-height: 80vh;
+    overflow: hidden;
+    color: #4e342e;
+}
+
+.seat-pick-page .section {
+    background: #fff;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+    border: 1px solid #efebe9;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* 내용이 넘치면 섹션 안에서 스크롤 */
+    max-height: 100%;
+}
+
+.seat-pick-page h3 {
+    text-align: center;
+    width: 100%;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Specific styling for the 'Result' title to be top-left within its section */
+.seat-pick-page .section.result-display h3 {
+    text-align: left !important; /* Override general h3 centering */
+    width: auto; /* Override general h3 width */
+    margin: 19px; /* Adjust margins to push it to top-left, add bottom margin */
+}
+
+/* Result section styling */
+.seat-pick-page .section.result-display {
+    padding: 20px; /* Explicitly set padding to match other sections */
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto; /* 내용이 넘치면 섹션 안에서 스크롤 */
+    max-height: 100%;
+    background-color:#fff;
+    margin:0;
+    justify-content: flex-start; /* 중앙 정렬 대신 위쪽 정렬로 변경 */
+    align-items: stretch;
+}
+
+
+.seat-pick-page .name-tag {
+    display: inline-flex;
+    align-items: center;
+    background: #efebe9;
+    padding: 5px 12px;
+    margin: 4px;
+    border-radius: 20px;
+    font-size: 14px;
+}
+
+.seat-pick-page .del-btn {
+    background: none;
+    border: none;
+    color: #a1887f;
+    margin-left: 6px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+/* 3. 칸 2: 설정 패널 (기존 스테퍼 + 토글 추가) */
+.seat-pick-page .config-item {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.seat-pick-page .toggle-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.seat-pick-page .toggle-btn {
+    width: 60px;
+    height: 28px;
+    border-radius: 15px;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.seat-pick-page .toggle-btn.on { background: #8d6e63; color: white; }
+.seat-pick-page .toggle-btn.off { background: #e0e0e0; color: #757575; }
+
+.seat-pick-page .stepper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.seat-pick-page .stepper button {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 1px solid #8d6e63;
+    background: white;
+    cursor: pointer;
+}
+
+.seat-pick-page .main-assign-btn {
+    width: 100%;
+    padding: 15px;
+    background: #8d6e63;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.seat-pick-page .reset-assign-btn {
+    width: 100%;
+    padding: 15px;
+    background: white;
+    color: #8d6e63; /* Text color to match border */
+    border: 2px solid #8d6e63; /* Border color from main-assign-btn background */
+    border-radius: 25px; /* Long oval shape */
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 50px; /* Half the margin of the main-assign-btn */
+}
+
+/* 4. 칸 3: 결과 그리드 (기획 반영 수정) */
+.seat-pick-page .classroom-grid {
+    display: flex;
+    flex-direction: row;     /* 분단들을 가로로 나열 */
+    justify-content: center; /* ★ 결과물 전체를 가로 중앙으로! */
+    align-items: flex-start; /* 상단 기준 정렬 */
+    gap: 30px;               /* 분단 사이 간격 */
+    width: 100%;             /* 부모 너비 전체 활용 */
+    margin: 0 auto;          /* 가로 중앙 배치 보조 */
+    padding: 10px;
+}
+
+/* 모둠 모드일 때의 그리드 컨테이너 */
+.seat-pick-page .group-mode-grid {
+    display: flex; /* 그룹들을 가로로 나열 */
+    flex-wrap: wrap;
+    gap: 30px; /* 그룹 간 간격 */
+    justify-content: center;
+    align-items: flex-start; /* 그룹들이 위에서부터 정렬되도록 */
+    gap: 30px;               /* 모둠 간 간격 */
+    width: 100%;
+    margin: 0 auto;
+}
+
+.seat-pick-page .group-box {
+    display: grid;
+    gap: 2px;            /* 책상 사이 간격 */
+    border: 2px solid #8d6e63;
+    border-radius: 8px;
+    padding: 5px;       /* 내부 여백 살짝 늘림 */
+    background-color: #fdfaf5;
+    flex: 0 1 auto;      /* 내용에 맞춰 크기를 잡되, 너무 늘어나지 않게 */
+    min-width: 200px;
+    flex: 0 1 auto;          /* 1에서 0으로 변경하여 무조건 늘어나지 않게 함 */
+    width: fit-content;      /* 내용물(책상) 너비에 딱 맞춤 */
+    min-width: 180px;        /* 너무 작아지지 않게 최소 너비 유지 */
+    max-width: 250px;        /* 한 명일 때 너무 넓어지는 것 방지 */
+    
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);    /* 최소 너비 확보 */
+}
+
+/* 이름 길이에 맞게 너비 조절되도록 수정 */
+.seat-pick-page .desk {
+    background: #fff;
+    border: 2px solid #d7ccc8;
+    height: 60px;
+    min-width: 80px;      /* 최소 너비 */
+    width: fit-content;   /* [기획] 이름 길이에 맞춤 */
+    padding: 0 15px;      /* 좌우 여백 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 4px;
+    position: relative;
+    white-space: nowrap;  /* 이름 줄바꿈 방지 */
+}
+
+/* 그룹 모드 내 책상 스타일 */
+.seat-pick-page .desk.group-desk {
+    border: none; /* 그룹 내 책상은 개별 테두리 없음 */
+    border-radius: 0; /* 그룹 내 책상은 모서리 둥글기 없음 */
+    background-color: #fff;
+    /* 그룹 내 책상 간의 구분은 group-box의 gap으로 처리 */
+}
+
+
+
+/* Styling for column segments in individual mode */
+.seat-pick-page .column-segment {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* 내부 책상 수평 가운데 정렬 */
+    justify-self: center; /* 그리드 트랙 내에서 열 세그먼트 자체를 가운데 정렬 */
+    gap: 1px; /* To make desks appear attached with a thin line */
+    border: 2px solid #8d6e63; /* Optional: border for the whole column segment */
+    border-radius: 8px;
+    /* padding: 5px; -> 제거하거나 줄임 */
+    /* background-color: #fdfaf5; -> 제거하거나 변경 */
+    overflow: hidden; /* Ensures inner borders don't spill */
+}
+
+/* Styling for individual desks within column segments */
+.seat-pick-page .desk.individual-desk {
+    border: none; /* Remove individual desk borders */
+    border-radius: 0; /* Remove individual desk border-radius */
+    background-color: #fff;
+    /* Gap in column-segment will create the separation */
+}
+
+.seat-pick-page .desk-no {
+    position: absolute;
+    top: 4px;
+    left: 6px;
+    font-size: 10px;
+    color: #bcaaa4;
+}
+
+.seat-pick-page .name { font-weight: bold; }
+
+
+.seat-pick-page .confirm-assign-btn {
+    width: 30%;
+    padding: 5px;
+    background: #8d6e63;
+    color: white;
+    border: none; /* Border color from main-assign-btn background */
+    border-radius: 25px; /* Long oval shape */
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px; }
+
+
+.no-results-placeholder {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    color: #a1887f;
+    padding: 40px 20px;          /* 안쪽 여백을 줘서 박스 크기 유지 */
+    border: 2px dashed #d7ccc8;
+    border-radius: 8px;
+    
+    /* 중요: 화면 정중앙에 박고 싶다면 margin-top을 줘서 조절 가능 */
+    margin: 50px auto;           /* 제목에서 50px 떨어뜨리고 가로 중앙 */
+    width: 80%;                  /* 너무 꽉 차지 않게 조절 */
+    min-height: 150px;
+    
+}
+.no-results-placeholder p {
+    margin: 2px 0;       /* 30px에서 2px로 과감하게 줄이세요 */
+    padding: 0;
+    line-height: 1.2;
+}
+/* Disable animations for result display and its children */
+.seat-pick-page .section.result-display,
+.seat-pick-page .section.result-display * {
+    transition: none !important;
+    animation: none !important;
+}

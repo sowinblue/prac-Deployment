@@ -1,0 +1,349 @@
+/* 기본 컨테이너 레이아웃 */
+.roulette-wrapper {
+    display: flex;
+    gap: 30px;
+    align-items: flex-start;
+    padding: 30px;
+    background-color: #f5f5f5;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
+    color: #333;
+}
+
+.roulette-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 520px;
+    box-sizing: border-box;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+
+/* 상단 설정 영역 */
+.top-control-area {
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 12px 25px;
+    background-color: #f8f9fa;
+    border-radius: 12px;
+    border: 1px solid #e9ecef;
+}
+
+.top-control-area label {
+    font-weight: 700;
+    color: #495057;
+}
+
+.top-control-area input[type="number"] {
+    width: 70px;
+    padding: 10px;
+    border: 2px solid #dee2e6;
+    border-radius: 8px;
+    font-size: 1.1em;
+    text-align: center;
+    transition: border-color 0.2s;
+}
+
+.top-control-area input:focus {
+    border-color: #3f51b5;
+    outline: none;
+}
+
+.reset-button {
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    background-color: #007bff; /* Primary blue color */
+    color: white;
+    font-size: 1.0em;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.reset-button:hover:not(:disabled) {
+    background-color: #0056b3; /* Darker blue on hover */
+    transform: translateY(-1px);
+}
+
+.reset-button:active:not(:disabled) {
+    transform: translateY(0);
+}
+
+.reset-button:disabled {
+    background-color: #cccccc; /* Grey for disabled state */
+    cursor: not-allowed;
+}
+
+/* 룰렛 게임 메인 영역 */
+.game-area {
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    margin-bottom: 30px;
+    background-color: #2c3e50;
+    padding: 35px;
+    border-radius: 25px;
+    position: relative;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+}
+
+.reels-wrapper {
+    display: flex;
+    border: 10px solid #1a252f;
+    border-radius: 15px;
+    background-color: #ecf0f1;
+    overflow: hidden;
+    width: 360px;
+    height: 160px;
+    position: relative;
+    box-shadow: 0 0 25px rgba(0, 0, 0, 0.4);
+}
+
+.reel {
+    width: 120px;
+    height: 100%;
+    overflow: hidden;
+    border-right: 2px solid #bdc3c7;
+    position: relative;
+}
+
+.reel:last-child {
+    border-right: none;
+}
+
+/* 릴 내부 리스트 스타일 */
+.reel ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* 멈췄을 때 중앙 정렬 */
+}
+
+/* 애니메이션 관련 변수 */
+:root {
+    --item-height: 80px; 
+    --member-count: 1;
+    --member-list-height: calc(var(--item-height) * var(--member-count));
+}
+
+.reel ul.rolling {
+    display: block; /* 회전 시에는 flex 해제 */
+    animation: spin linear infinite;
+    animation-duration: calc(var(--member-count) * 0.06s);
+}
+
+@keyframes spin {
+    from { transform: translateY(0); }
+    to { transform: translateY(calc(-1 * var(--member-list-height))); }
+}
+
+.reel li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--item-height);
+    box-sizing: border-box;
+}
+
+/* 멤버 볼 공통 스타일 */
+.member-ball {
+    width: 85px;
+    height: 85px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.1em;
+    font-weight: 800;
+    color: #fff;
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2), inset 0 -4px 4px rgba(0,0,0,0.1);
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* 배정 완료/비어있을 때 스타일 */
+.member-ball.empty {
+    background: transparent;
+    border: 3px dashed rgba(0, 0, 0, 0.1);
+    box-shadow: none;
+    color: transparent;
+}
+
+/* 레버(Lever) 시스템 */
+.lever {
+    width: 50px;
+    height: 160px;
+    background: #7f8c8d;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.3);
+}
+
+.lever-handle {
+    width: 12px;
+    height: 100px;
+    background: linear-gradient(to bottom, #bdc3c7, #95a5a6);
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 6px;
+    transform-origin: bottom center;
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+.lever-knob {
+    width: 45px;
+    height: 45px;
+    background: radial-gradient(circle at 30% 30%, #e74c3c, #c0392b);
+    border-radius: 50%;
+    position: absolute;
+    top: -115px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.4);
+}
+
+/* 레버 작동 시(회전 중 또는 자동 배정 대기 중) */
+.lever.down .lever-handle {
+    transform: translateX(-50%) rotateX(160deg);
+}
+
+.lever.down .lever-knob {
+    transform: translateX(-50%) translateY(160px);
+}
+
+/* 결과 표시 섹션 */
+.result-display {
+    margin-top: 20px;
+    padding: 20px 40px;
+    background: #f1f8e9;
+    border-radius: 15px;
+    border-left: 8px solid #4caf50;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    animation: slideUp 0.5s ease-out;
+}
+
+@keyframes slideUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.finalist-name { color: #d81b60; font-size: 1.4em; font-weight: 900; margin: 0 10px; }
+.finalist-team { color: #2e7d32; font-size: 1.4em; font-weight: 900; }
+
+/* 2단계 선택 오버레이 */
+.final-pick-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    display: flex;
+    background: rgba(0,0,0,0.75);
+    z-index: 100;
+}
+
+.reel-result-item {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.final-pick-overlay .member-ball {
+    opacity: 0.4;
+    transform: scale(0.8);
+}
+
+.final-pick-overlay .member-ball.active {
+    opacity: 1;
+    transform: scale(1.2);
+    box-shadow: 0 0 30px rgba(255, 235, 59, 0.8);
+    background: linear-gradient(135deg, #fbc02d, #f44336);
+}
+
+/* 룰북/상태 안내 영역 */
+.rulebook-area {
+    margin-top: 25px;
+    width: 100%;
+    padding: 15px;
+    background: #fff9c4;
+    border-radius: 10px;
+    border: 1px solid #fff176;
+    text-align: center;
+    font-weight: 600;
+    color: #f57f17;
+}
+
+/* 우측 팀 배정 현황 영역 */
+.team-display-area {
+    flex: 1;
+    min-width: 320px;
+    background: #ffffff;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+
+.team-display-area h2 {
+    margin-top: 0;
+    color: #1a237e;
+    border-bottom: 2px solid #e8eaf6;
+    padding-bottom: 10px;
+}
+
+.teams-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.team-card {
+    background: #f8f9fa;
+    border: 1px solid #e9ecef;
+    border-radius: 12px;
+    padding: 15px;
+    transition: transform 0.2s;
+}
+
+.team-card:hover { transform: translateY(-5px); }
+
+.team-card h3 {
+    margin: 0 0 10px 0;
+    font-size: 1.1em;
+    color: #3f51b5;
+}
+
+.team-member-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.team-member-list li {
+    background: #fff;
+    padding: 6px 10px;
+    margin-bottom: 5px;
+    border-radius: 6px;
+    font-size: 0.95em;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    border-left: 4px solid #3f51b5;
+}
