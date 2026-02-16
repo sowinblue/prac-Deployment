@@ -19,7 +19,7 @@ function Header({ activeGame, onGameChange, onCaptureClick }) {
                     onClick={() => onGameChange('home')} // onMenuClick -> onGameChange
                     style={{cursor: 'pointer'}}
                 >
-                    • BANG!
+                    BANG!
                 </span>
                 <nav className="menu">
                     <button className="menu-btn" onClick={() => onGameChange('ladder')}>
