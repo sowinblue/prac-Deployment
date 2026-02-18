@@ -141,6 +141,11 @@
     margin-top: 50px; /* Half the margin of the main-assign-btn */
 }
 
+.seat-pick-page .reset-assign-btn:hover {
+    background-color: #a1887f;
+    color: white;
+}
+
 /* 4. 칸 3: 결과 그리드 (기획 반영 수정) */
 .seat-pick-page .classroom-grid {
     display: flex;
@@ -284,4 +289,16 @@
 .seat-pick-page .section.result-display * {
     transition: none !important;
     animation: none !important;
+}
+
+@media (max-width: 768px) {
+  .seat-pick-page {
+    grid-template-columns: 1fr;
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .seat-pick-page .section {
+    max-height: none; /* Allow sections to grow */
+  }
 }

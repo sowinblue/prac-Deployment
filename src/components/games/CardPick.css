@@ -166,6 +166,11 @@
   color: #4e342e/* 오렌지색 계열 */
 }
 
+.action-btn.result:hover {
+  background-color: #a1887f;
+  color: white;
+}
+
 
 /*  3. 새로 추가된 결과 모달 스타일 (사다리 타기 느낌) */
 
@@ -254,4 +259,12 @@
 
 .modal-close-btn:hover {
   background-color: #d35400;
+}
+
+@media (max-width: 768px) {
+  .card-pick-container {
+    padding: 10px;
+    margin: 0;
+    border-radius: 0;
+  }
 }
