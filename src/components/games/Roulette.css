@@ -6,7 +6,8 @@
     padding: 30px;
     background-color: #FFF;
     border-radius: 15px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* Updated shadow */
+    border: 1px solid #efebe9; /* Added border */
     font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, system-ui, Roboto, sans-serif;
     color: #333;
 
@@ -21,12 +22,11 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 520px;
+    width: 100%;
     box-sizing: border-box;
     background: #ffffff;
     padding: 25px;
     border-radius: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /* 상단 설정 영역 */
@@ -36,9 +36,7 @@
     align-items: center;
     gap: 15px;
     padding: 12px 25px;
-    background-color: #f8f9fa;
     border-radius: 12px;
-    border: 1px solid #e9ecef;
 }
 
 .top-control-area label {
@@ -75,7 +73,7 @@
 }
 
 .reset-button:hover:not(:disabled) {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #a1887f; /* Darker blue on hover */
     transform: translateY(-1px);
 }
 
@@ -290,12 +288,12 @@
     margin-top: 25px;
     width: 100%;
     padding: 15px;
-    background: #fff9c4;
+    background: #bcaaa4;
     border-radius: 10px;
-    border: 1px solid #fff176;
+    border: 1px solid #efebe9;
     text-align: center;
     font-weight: 600;
-    color: #f57f17;
+    color: #4e342e;
 }
 
 /* 우측 팀 배정 현황 영역 */
@@ -305,13 +303,14 @@
     background: #ffffff;
     padding: 25px;
     border-radius: 20px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid #efebe9;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
 }
 
 .team-display-area h2 {
     margin-top: 0;
-    color: #1a237e;
-    border-bottom: 2px solid #e8eaf6;
+    color: #4e342e;
+    border-bottom: 2px solid #4e342e;
     padding-bottom: 10px;
 }
 
@@ -323,7 +322,7 @@
 }
 
 .team-card {
-    background: #f8f9fa;
+    background: #efebe9;
     border: 1px solid #e9ecef;
     border-radius: 12px;
     padding: 15px;
@@ -335,7 +334,7 @@
 .team-card h3 {
     margin: 0 0 10px 0;
     font-size: 1.1em;
-    color: #3f51b5;
+    color: #4e342e;
 }
 
 .team-member-list {
@@ -351,5 +350,5 @@
     border-radius: 6px;
     font-size: 0.95em;
     box-shadow: 0 2px 4px rgba(0,0,0,0.03);
-    border-left: 4px solid #3f51b5;
+    border-left: 4px solid #4e342e;
 }

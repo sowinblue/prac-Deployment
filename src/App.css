@@ -53,7 +53,7 @@ body, html {
   background: white;
   border-radius: 20px;
   border: 1px solid #efebe9;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05); /* Updated shadow */
   padding: 40px;
   box-sizing: border-box;
   
