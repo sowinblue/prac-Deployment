@@ -125,6 +125,10 @@
     margin-top: 10px;
 }
 
+.seat-pick-page .main-assign-btn:hover {
+    background-color: #a1887f;
+}
+
 .seat-pick-page .reset-assign-btn {
     width: 100%;
     padding: 15px;

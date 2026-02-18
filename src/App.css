@@ -48,7 +48,7 @@ body, html {
   
   /* ★ 메인 화면 핵심: 화면 높이에 딱 맞게 고정 (스크롤 방지) */
   height: 80vh; 
-  margin: 40px auto; /* 중앙 정렬 */
+  margin: 20px auto; /* 중앙 정렬, 상단 간격 20px로 수정 */
   
   background: white;
   border-radius: 20px;

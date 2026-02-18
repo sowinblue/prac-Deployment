@@ -131,14 +131,14 @@
   font-size: 16px;
   font-weight: bold;
   cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  transition: none; /* Removed transition */
+  box-shadow: none; /* Removed box-shadow */
   color: white; /* 기본 글자색 */
 }
 
 .action-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 8px rgba(0,0,0,0.15);
+  transform: none; /* Removed transform */
+  box-shadow: none; /* Removed box-shadow */
 }
 
 /* 버튼별 색상 */
@@ -148,8 +148,16 @@
   border: 1px solid #8d6e63;
 }
 
+.action-btn.retry:hover {
+  background-color: #a1887f;
+}
+
 .action-btn.flip-all {
   background-color: #8d6e63; /* 보라색 계열 */
+}
+
+.action-btn.flip-all:hover {
+  background-color: #a1887f; /* Added hover effect */
 }
 
 .action-btn.result {

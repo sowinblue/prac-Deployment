@@ -64,3 +64,7 @@
     margin-right: 20px; /* Increased margin to move inwards */
     /* Removed margin-left: auto */
 }
+
+.capture-btn:hover {
+  background-color: #a1887f;
+}

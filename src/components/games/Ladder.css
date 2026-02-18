@@ -8,7 +8,7 @@
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     max-width: 1200px; /* Example max width, adjust as needed */
-    margin: 30px auto; /* Center the container with some margin */
+    margin: 20px auto; /* Center the container with some margin, 상단 간격 20px로 수정 */
     min-height: 80vh; /* Ensure it takes up sufficient height */
     box-sizing: border-box;
 }
