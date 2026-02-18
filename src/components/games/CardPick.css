@@ -38,7 +38,7 @@
 /* 카드 그리드 (기존 유지) */
 .cards-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, max-content)); /* Changed to auto-fit and max-content for better centering of grouped items */
   gap: 20px;
   justify-content: center;
   margin-top: 30px;
