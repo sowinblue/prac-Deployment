@@ -90,13 +90,13 @@
 
 /* 기존 색상 유지 */
 .card-front {
-  background-color: #D8A47F; /* 기존 갈색 */
+  background-color: #8d6e63; /* 기존 갈색 */
   color: white;
 }
 
 .card-back {
-  background-color: #8FAF9B; /* 기존 민트색 */
-  color: white;
+  background-color: #d7ccc8; /* 기존 민트색 */
+  color: #4e342e;
   transform: rotateY(180deg);
   flex-direction: column; /* 이름과 팀 배지 정렬을 위해 추가 */
   gap: 5px;
@@ -142,9 +142,9 @@
 
 /* 버튼별 색상 */
 .action-btn.retry {
-  background-color: #f0f0f0;
-  color: #4e342e;
-  border: 1px solid #ccc;
+  background-color: #e5cece;
+  color: #6a473f;
+  border: 1px solid #8d6e63;
 }
 
 .action-btn.flip-all {
