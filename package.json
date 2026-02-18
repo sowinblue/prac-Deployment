@@ -1,6 +1,9 @@
 {
   "name": "sylk",
   "version": "0.1.0",
+  "engines": {
+    "node": "18.x"
+  },
   "homepage": ".",
   "private": true,
   "dependencies": {
