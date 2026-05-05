@@ -104,5 +104,3 @@ SYLK/
 * **DevOps**: Docker, GitHub Actions (CI/CD)
 
 ---
-
-까지 같이 정리해줄 수 있다.
